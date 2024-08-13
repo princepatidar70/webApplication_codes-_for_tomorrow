@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import '../src/styles/style.css'
+import Sidebar from './components/Sidebar';
+import { useState } from 'react';
 
 function App() {
+  const [toggle, setToggle] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: 'flex', flexDirection: 'row' ,margin:'1  0px'}}>
+      <div >
+        <Sidebar toggle={toggle} setToggle={setToggle} />
+      </div>
+      <div style={{margin:'10px'}}>
+
+      <Home toggle={toggle} setToggle={setToggle} />
+      </div>
     </div>
   );
 }
